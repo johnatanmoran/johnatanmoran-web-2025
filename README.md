@@ -100,3 +100,69 @@ Inspiración visual: Mi trayectoria creativa desde 2006 🧡
 ---
 
 © 2025 johnatanmoran – "Pensando fuera de la caja".
+
+---
+
+-   `src/pages/`: Each `.astro` or `.mdx` file becomes a route.
+-   `src/content/`: Content collections pulled from Strapi (projects, posts, etc.).
+-   `src/components/`: Reusable components in Astro, React, or Tailwind.
+-   `public/`: Static assets like images, fonts, and favicons.
+
+---
+
+## 🧑‍💻 Technologies Used
+
+-   **Astro** – Fast, content-first frontend framework.
+-   **Strapi** – Headless CMS for structured dynamic content.
+-   **Tailwind CSS** – Utility-first CSS framework for rapid styling.
+-   **JavaScript (ES6+)** – Interactive logic and animation.
+-   **HTML5 + CSS3** – Semantic structure and layout.
+-   **Node.js** – Development and CLI tooling.
+
+---
+
+## 📦 Useful Commands
+
+| Command                   | Description                                     |
+| ------------------------- | ----------------------------------------------- |
+| `npm install`             | Install project dependencies.                   |
+| `npm run dev`             | Start the local dev server at `localhost:4321`. |
+| `npm run build`           | Build the production site in `./dist`.          |
+| `npm run preview`         | Preview the production build locally.           |
+| `npm run astro ...`       | Run Astro CLI commands (e.g., `astro check`).   |
+| `npm run astro -- --help` | View Astro CLI help menu.                       |
+
+---
+
+## ✨ Project Status
+
+Currently in active development:
+
+-   3D Box Animation: ✅ (in progress)
+-   Strapi Integration: ⏳
+-   Bilingual Blog and UI Toggle: ⏳
+-   Responsive Optimization: ✅
+
+---
+
+## 📫 Contact
+
+Interested in working together or hiring me?
+
+-   Email: [info@johnatanmoran.com](mailto:info@johnatanmoran.com)
+-   Website: [https://johnatanmoran.com](https://johnatanmoran.com)
+-   LinkedIn: [linkedin.com/in/johnatanmoran](https://linkedin.com/in/johnatanmoran)
+-   Behance: [behance.net/johnatanmoran](https://behance.net/johnatanmoran)
+
+---
+
+## 🧠 Credits & Acknowledgments
+
+This site is based on Astro’s official `blog` template and has been fully customized to reflect my personal brand, creative identity, and digital capabilities.
+
+Base template: [Astro Starter Kit: Blog](https://github.com/withastro/astro/tree/latest/examples/blog)  
+Creative influence: My professional journey since 2006 🧡
+
+---
+
+© 2025 johnatanmoran – “Thinking outside the box (and inside the code).”
