@@ -1,0 +1,18 @@
+{
+	"collectionName": "categorias_blog",
+	"info": {
+		"singularName": "categoria-blog",
+		"pluralName": "categorias-blog",
+		"displayName": "Categoría Blog"
+	},
+	"attributes": {
+		"nombre": {
+			"type": "string",
+			"required": true
+		},
+		"slug": {
+			"type": "uid",
+			"targetField": "nombre"
+		}
+	}
+}

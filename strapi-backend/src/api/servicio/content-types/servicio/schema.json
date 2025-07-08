@@ -1,0 +1,42 @@
+{
+	"collectionName": "servicios",
+	"info": {
+		"singularName": "servicio",
+		"pluralName": "servicios",
+		"displayName": "Servicio"
+	},
+	"options": {
+		"draftAndPublish": true
+	},
+	"attributes": {
+		"titulo": {
+			"type": "string",
+			"required": true,
+			"pluginOptions": {
+				"i18n": {
+					"localized": true
+				}
+			}
+		},
+		"descripcion": {
+			"type": "richtext",
+			"pluginOptions": {
+				"i18n": {
+					"localized": true
+				}
+			}
+		},
+		"icono": {
+			"type": "media"
+		},
+		"area": {
+			"type": "enumeration",
+			"enum": [
+				"design",
+				"development",
+				"both"
+			],
+			"default": "both"
+		}
+	}
+}

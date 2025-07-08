@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_global_tecnologia",
+  "info": {
+    "displayName": "Tecnologia",
+    "icon": "laptop-code",
+    "description": "Reusable technology/tag for projects or services"
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "icono": {
+      "type": "media",
+      "multiple": false
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "lenguaje",
+        "framework",
+        "herramienta",
+        "base_de_datos",
+        "diseño",
+        "otro"
+      ]
+    }
+  }
+}

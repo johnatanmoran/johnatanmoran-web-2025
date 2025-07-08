@@ -1,0 +1,18 @@
+{
+	"collectionName": "etiquetas",
+	"info": {
+		"singularName": "etiqueta",
+		"pluralName": "etiquetas",
+		"displayName": "Etiqueta"
+	},
+	"attributes": {
+		"nombre": {
+			"type": "string",
+			"required": true
+		},
+		"slug": {
+			"type": "uid",
+			"targetField": "nombre"
+		}
+	}
+}

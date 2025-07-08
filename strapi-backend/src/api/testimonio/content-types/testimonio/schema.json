@@ -1,0 +1,53 @@
+{
+	"collectionName": "testimonios",
+	"info": {
+		"singularName": "testimonio",
+		"pluralName": "testimonios",
+		"displayName": "Testimonio"
+	},
+	"options": {
+		"draftAndPublish": true
+	},
+	"attributes": {
+		"nombre": {
+			"type": "string",
+			"required": true
+		},
+		"cargo": {
+			"type": "string",
+			"pluginOptions": {
+				"i18n": {
+					"localized": true
+				}
+			}
+		},
+		"empresa": {
+			"type": "string",
+			"pluginOptions": {
+				"i18n": {
+					"localized": true
+				}
+			}
+		},
+		"quote": {
+			"type": "text",
+			"pluginOptions": {
+				"i18n": {
+					"localized": true
+				}
+			}
+		},
+		"avatar": {
+			"type": "media"
+		},
+		"area": {
+			"type": "enumeration",
+			"enum": [
+				"design",
+				"development",
+				"both"
+			],
+			"default": "both"
+		}
+	}
+}
