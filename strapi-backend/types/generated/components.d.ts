@@ -23,20 +23,10 @@ export interface GlobalTecnologia extends Struct.ComponentSchema {
   };
 }
 
-export interface UnoUno extends Struct.ComponentSchema {
-  collectionName: 'components_uno_unos';
-  info: {
-    displayName: 'Uno';
-    icon: 'crown';
-  };
-  attributes: {};
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'global.tecnologia': GlobalTecnologia;
-      'uno.uno': UnoUno;
     }
   }
 }

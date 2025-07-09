@@ -1,0 +1,46 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import { Image } from "astro:assets";
+import fetchApi from "../lib/strapi";
+import type Projects from "../interfaces/projects";
+
+const projects = await fetchApi<Projects[]>({
+	endpoint: "projects", // el tipo de contenido a obtener
+	wrappedByKey: "data", // la clave para descomponer la respuesta
+});
+
+console.log("Projects:", projects);
+---
+
+<html lang="es">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Proyectos</h1>
+			{
+				projects.length === 0 ? (
+					<p>No hay Proyectos</p>
+				) : (
+					<>
+						{projects.map((item) => (
+							<li>
+								<a href={`/blog/${item.attributes.slug}/`}>
+									{item.attributes.title}
+								</a>
+							</li>
+						))}
+					</>
+				)
+			}
+		</main>
+		<Footer />
+	</body>
+</html>

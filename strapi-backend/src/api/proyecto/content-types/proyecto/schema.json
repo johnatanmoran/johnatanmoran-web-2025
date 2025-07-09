@@ -1,91 +1,138 @@
 {
-	"collectionName": "proyectos",
-	"info": {
-		"singularName": "proyecto",
-		"pluralName": "proyectos",
-		"displayName": "Proyecto"
-	},
-	"options": {
-		"draftAndPublish": true
-	},
-	"attributes": {
-		"titulo": {
-			"type": "string",
-			"required": true,
-			"pluginOptions": {
-				"i18n": {
-					"localized": true
-				}
-			}
-		},
-		"slug": {
-			"type": "uid",
-			"targetField": "titulo",
-			"pluginOptions": {
-				"i18n": {
-					"localized": true
-				}
-			}
-		},
-		"descripcion": {
-			"type": "richtext",
-			"pluginOptions": {
-				"i18n": {
-					"localized": true
-				}
-			}
-		},
-		"detalles": {
-			"type": "richtext",
-			"pluginOptions": {
-				"i18n": {
-					"localized": true
-				}
-			}
-		},
-		"imagen_destacada": {
-			"type": "media"
-		},
-		"galeria": {
-			"type": "media",
-			"multiple": true
-		},
-		"tecnologias": {
-			"type": "component",
-			"repeatable": true,
-			"component": "global.tecnologia"
-		},
-		"categoria": {
-			"type": "relation",
-			"relation": "manyToOne",
-			"target": "api::categoria.categoria"
-		},
-		"tags": {
-			"type": "relation",
-			"relation": "manyToMany",
-			"target": "api::etiqueta.etiqueta"
-		},
-		"fecha": {
-			"type": "date"
-		},
-		"enlace": {
-			"type": "string"
-		},
-		"repositorio": {
-			"type": "string"
-		},
-		"destacado": {
-			"type": "boolean",
-			"default": false
-		},
-		"area": {
-			"type": "enumeration",
-			"enum": [
-				"design",
-				"development",
-				"both"
-			],
-			"default": "both"
-		}
-	}
+  "kind": "collectionType",
+  "collectionName": "proyectos",
+  "info": {
+    "singularName": "proyecto",
+    "pluralName": "proyectos",
+    "displayName": "Proyecto OLD"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": false,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "targetField": "titulo"
+    },
+    "descripcion": {
+      "type": "richtext",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "detalles": {
+      "type": "richtext",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "imagen_destacada": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "galeria": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": true
+    },
+    "tecnologias": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.tecnologia",
+      "repeatable": true
+    },
+    "categoria": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categoria.categoria"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::etiqueta.etiqueta"
+    },
+    "fecha": {
+      "type": "date",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "enlace": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "repositorio": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "destacado": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": false
+    },
+    "area": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "both",
+      "enum": [
+        "design",
+        "development",
+        "both"
+      ]
+    }
+  }
 }

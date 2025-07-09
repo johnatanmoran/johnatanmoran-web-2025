@@ -373,18 +373,90 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
+  collectionName: 'articles';
+  info: {
+    displayName: 'Article';
+    pluralName: 'articles';
+    singularName: 'article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    coverImage: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    excerpt: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::article.article'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'titulo'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiArticuloArticulo extends Struct.CollectionTypeSchema {
   collectionName: 'articulos';
   info: {
-    displayName: 'Art\u00EDculo';
+    displayName: 'Art\u00EDculo OLD';
     pluralName: 'articulos';
     singularName: 'articulo';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     area: Schema.Attribute.Enumeration<['design', 'development', 'both']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.DefaultTo<'both'>;
     categoria: Schema.Attribute.Relation<
       'manyToOne',
@@ -405,14 +477,23 @@ export interface ApiArticuloArticulo extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    fecha: Schema.Attribute.DateTime;
-    imagen: Schema.Attribute.Media;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    fecha: Schema.Attribute.DateTime &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    imagen: Schema.Attribute.Media &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::articulo.articulo'
-    > &
-      Schema.Attribute.Private;
+    >;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'titulo'> &
       Schema.Attribute.SetPluginOptions<{
@@ -422,7 +503,6 @@ export interface ApiArticuloArticulo extends Struct.CollectionTypeSchema {
       }>;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::etiqueta.etiqueta'>;
     titulo: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -573,18 +653,97 @@ export interface ApiPaginaPagina extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProjectProject extends Struct.CollectionTypeSchema {
+  collectionName: 'projects';
+  info: {
+    displayName: 'Proyectos';
+    pluralName: 'projects';
+    singularName: 'project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    articulo: Schema.Attribute.Relation<'oneToOne', 'api::articulo.articulo'>;
+    coverImage: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    gallery: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project.project'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProyectoProyecto extends Struct.CollectionTypeSchema {
   collectionName: 'proyectos';
   info: {
-    displayName: 'Proyecto';
+    displayName: 'Proyecto OLD';
     pluralName: 'proyectos';
     singularName: 'proyecto';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     area: Schema.Attribute.Enumeration<['design', 'development', 'both']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.DefaultTo<'both'>;
     categoria: Schema.Attribute.Relation<
       'manyToOne',
@@ -599,25 +758,55 @@ export interface ApiProyectoProyecto extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    destacado: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    destacado: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<false>;
     detalles: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    enlace: Schema.Attribute.String;
-    fecha: Schema.Attribute.Date;
-    galeria: Schema.Attribute.Media<undefined, true>;
-    imagen_destacada: Schema.Attribute.Media;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    enlace: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    fecha: Schema.Attribute.Date &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    galeria: Schema.Attribute.Media<undefined, true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    imagen_destacada: Schema.Attribute.Media &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::proyecto.proyecto'
-    > &
-      Schema.Attribute.Private;
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    repositorio: Schema.Attribute.String;
+    repositorio: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     slug: Schema.Attribute.UID<'titulo'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -625,9 +814,14 @@ export interface ApiProyectoProyecto extends Struct.CollectionTypeSchema {
         };
       }>;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::etiqueta.etiqueta'>;
-    tecnologias: Schema.Attribute.Component<'global.tecnologia', true>;
+    tecnologias: Schema.Attribute.Component<'global.tecnologia', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     titulo: Schema.Attribute.String &
-      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1240,11 +1434,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::article.article': ApiArticleArticle;
       'api::articulo.articulo': ApiArticuloArticulo;
       'api::categoria-blog.categoria-blog': ApiCategoriaBlogCategoriaBlog;
       'api::categoria.categoria': ApiCategoriaCategoria;
       'api::etiqueta.etiqueta': ApiEtiquetaEtiqueta;
       'api::pagina.pagina': ApiPaginaPagina;
+      'api::project.project': ApiProjectProject;
       'api::proyecto.proyecto': ApiProyectoProyecto;
       'api::servicio.servicio': ApiServicioServicio;
       'api::testimonio.testimonio': ApiTestimonioTestimonio;

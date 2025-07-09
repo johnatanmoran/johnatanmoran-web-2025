@@ -15,7 +15,10 @@ pnpm-debug.log*
 
 # environment variables
 .env
-.env.production
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
 
 # macOS-specific files
 .DS_Store
@@ -28,3 +31,19 @@ pnpm-debug.log*
 
 # johnatanmoran design assets
 design/
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
